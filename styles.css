@@ -1,0 +1,41 @@
+body {
+	background: white;
+}
+
+#title {
+	text-align: center;
+	font-family: 'lato', sans-serif;
+	margin-top: 15%;
+	font-size: 50px;
+}
+
+#searchBox_div {
+	position: absolute;
+	top: 35%;
+	left: 5%;
+	width: 90%;
+	height: 20%;
+}
+
+#searchBox {
+	position: absolute;
+	top: 50%;
+	left: 20%;
+	width: 60%;
+
+	border: none;
+	border-bottom: solid 4px;
+	border-color: rgb(150, 150, 150);
+	font-family: 'Poppins', sans-serif;
+	font-size: 20px;
+	color: black;
+	background-color: rgba(0, 0, 0, 0);
+
+	outline: none;
+	transition: 0.2s;
+}
+
+#searchBox:focus {
+	left: 10%;
+	width: 80%;
+}
