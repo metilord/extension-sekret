@@ -1,5 +1,5 @@
 body {
-	background: white;
+	background: rgb(220, 220, 220);
 }
 
 #title {
@@ -38,4 +38,29 @@ body {
 #searchBox:focus {
 	left: 10%;
 	width: 80%;
+	border-color: rgb(80, 100, 240);
 }
+
+#quickTabDiv {
+	position: absolute;
+	width: 90%;
+	height: 40%;
+	top: 60%;
+	left: 4%;
+}
+
+.quickTab {
+	background-color: white;
+	width: 20%;
+	height: 95%;
+	float: left;
+	margin-left: 4%;
+
+	box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.19);
+	transition: 0.2s;
+}
+
+.quickTab:hover {
+	box-shadow: 6px 9px 14px rgba(0, 0, 0, 0.3);
+}
+

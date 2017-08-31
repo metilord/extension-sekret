@@ -11,6 +11,17 @@
 
   "chrome_url_overrides" : {
     "newtab": "window.html"
-  }
+  },
 
+  "background": {
+    "scripts": ["newtab.js"],
+
+    "persistant": false
+  },
+
+  "offline_enabled": true,
+
+  "permissions": [
+    "tabs"
+  ]
 }
