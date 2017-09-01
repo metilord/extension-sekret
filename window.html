@@ -14,16 +14,20 @@
 <div id="searchBox_div">
 	<form method="get" action="https://www.google.com/search?q=">
 		<table border="0" cellpadding="0">
-			<input autocomplete="off" id="searchBox" type="text" name="q" placeholder="Google Search">
+			<input autocomplete="off" id="searchBox" type="text" name="q" placeholder="Google Search" tabindex="1">
 		</table>
 	</form>
 </div>
 
 <div id="quickTabDiv">
-	<div id="QT1" class="quickTab"></div>
-	<div id="QT2" class="quickTab"></div>
-	<div id="QT3" class="quickTab"></div>
-	<div id="QT4" class="quickTab"></div>
+	<div id="QT1" class="quickTab" tabindex="2"></div>
+	<div id="QT2" class="quickTab" tabindex="3"></div>
+	<div id="QT3" class="quickTab" tabindex="4"></div>
+	<div id="QT4" class="quickTab" tabindex="5"></div>
+
+	<div class="edit_quickTab">
+		<p id="side_note">Edit</p>
+	</div>
 </div>
 
 </body>

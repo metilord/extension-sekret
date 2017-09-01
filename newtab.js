@@ -1,6 +1,13 @@
-var mouseX =
+if (typeof(Storage) !== undefined) {
+	if (localStorage.urlList) {
+		document.getElementById().onclick = function() {
+			
+		}
+	} else {
+		localStorage.urlList = ["", "", "", ""];
+	}
+}
 
-console.log(mouseX);
 
 document.getElementById('QT1').onclick = function() {
 	window.location = "https://classroom.google.com/h";
