@@ -1,13 +1,19 @@
-if (typeof(Storage) !== undefined) {
+/*if (typeof(Storage) !== undefined) {
 	if (localStorage.urlList) {
-		document.getElementById().onclick = function() {
-			
-		}
+		
 	} else {
 		localStorage.urlList = ["", "", "", ""];
 	}
+}*/
+function CustomMenu() {
+	
 }
 
+
+window.oncontextmenu = function() {
+	CustomMenu();
+	return false;
+}
 
 document.getElementById('QT1').onclick = function() {
 	window.location = "https://classroom.google.com/h";
