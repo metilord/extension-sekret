@@ -98,3 +98,31 @@ body {
 	color: rgba(170, 170, 170, 1);
 }
 
+
+#rightClick {
+	z-index: 2;
+	position: absolute;
+
+	background-color: white;
+	width: 230px;
+	height: 300px;
+
+	border-radius: 3%;
+	display: none;
+}
+
+.BTN_menu {
+	width: 100%;
+	height: 20%;
+	background-color: white;
+	border: none;
+	border-left: 4px solid;
+	border-right: 4px solid;
+	border-color: rgb(150, 150, 150);
+	outline: none;
+}
+
+.BTN_menu:hover {
+	border-color: rgb(90, 110, 240);
+}
+

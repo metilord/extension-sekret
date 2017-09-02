@@ -8,11 +8,15 @@
 	<title>New Tab</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
+<body id="body">
 <p id="title">Hello!</p>
 
-<div id="Rightclick">
-	<button class="BTN_menu"></button>
+<div id="rightClick">
+	<button class="BTN_menu" id="1">Button A</button>
+	<button class="BTN_menu" id="1">Button B</button>
+	<button class="BTN_menu" id="1">Button C</button>
+	<button class="BTN_menu" id="1">Button D</button>
+	<button class="BTN_menu" id="1">Button E</button>
 </div>
 
 <div id="searchBox_div">
@@ -31,8 +35,10 @@
 </div>
 
 <div>
-	<svg>
-		<circle cx="50" cy="50" r="10" fill="rgba(0, 0, 0, 0)" stroke="rgb(60, 60, 60)" stroke-width="5" />
+	<svg width="60" height="60">
+		<circle cx="30" cy="30" r="10" fill="rgba(0, 0, 0, 0)" stroke="rgb(60, 60, 60)" stroke-width="5" />
+		<rect id="trooper" x="26" y="10" width="7" height="10" rx="2" ry="2" fill="rgb(60, 60, 60)"/>
+		<rect id="trooper" x="26" y="10" width="7" height="10" rx="2" ry="2" fill="rgb(60, 60, 60)" transform="rotate(45, 30, 30)"/>
 	</svg>
 </div>
 </body>
