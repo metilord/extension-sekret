@@ -1,6 +1,8 @@
-var rectAttr = ['25', '8', '9', '13', '2', '2'];
-
+var select = false;
 var custom_menu = document.getElementById('rightClick');
+var CLASSROOMDOM = document.getElementsByTagName('svg')[0];
+var createElem;
+
 function CustomMenu(T) {
 	if (T === "T") {
 		custom_menu.style.display = "block";
@@ -10,20 +12,31 @@ function CustomMenu(T) {
 	}
 }
 
-window.oncontextmenu = function(e) {
-	custom_menu.style.left = e.clientX + 'px';
-	custom_menu.style.top = e.clientY + 'px';
-	CustomMenu('T');
-	return false;
-}
+function Draw(Type) {
+	if (Type == "settings_icon") {
+		var rectVal = ['26', '12', '7', '8', '2', '2', 'rgb(60, 60, 60)'];
+		var rectAttr = ['x', 'y', 'width', 'height', 'rx', 'yx', 'fill'];
+		var SETTINGDOM = document.getElementsByTagName('svg')[1];
 
-window.onclick = function() {
-	CustomMenu('F');
-}
+		for (var z = 0; z < 9; z ++) {
+			createElem = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 
-window.onkeydown = function(e) {
-	if (e.keyCode === 27) {
-		CustomMenu('F');
+			for (var i = 0; i < rectAttr.length; i ++) {
+				createElem.setAttribute(rectAttr[i], rectVal[i]);
+			}
+
+			createElem.setAttribute('transform', 'rotate(' + (45 * z) + ', 30, 30)');
+			SETTINGDOM.appendChild(createElem);
+		}
+	}
+
+	if (Type == "classroom_icon") {
+		var classroomRectAttr = [];
+		var classroomRectVal = [];
+		createElem = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+		for (var i = 0; i < classroomRectVal.length; i ++) {
+			createElem.setAttribute(classroomRectAttr[i], classroomRectVal[i])
+		}
 	}
 }
 
@@ -43,17 +56,30 @@ document.getElementById('QT4').onclick = function() {
 	window.location = "https://github.com";
 }
 
+window.oncontextmenu = function(e) {
+	custom_menu.style.left = e.clientX + 'px';
+	custom_menu.style.top = e.clientY + 'px';
+	CustomMenu('T');
+	return false;
+}
+
+window.onclick = function() {
+	CustomMenu('F');
+}
+
+window.onkeydown = function(e) {
+	if (e.keyCode === 27) {
+		CustomMenu('F');
+	}
+
+	if (select === false) {
+		document.getElementById('searchBox').focus();
+		select = true;
+	}
+}
+
 window.onload = function() {
-	var x = document.getElementsByTagName('svg')[0];
-	var y = document.createElement('rect');
-	y.setAttribute('x', '25');
-	y.setAttribute('y', '8');
-	y.setAttribute('width', '9');
-	y.setAttribute('height', '13');
-	y.setAttribute('rx', '2');
-	y.setAttribute('ry', '2');
-	y.setAttribute('fill', 'rgb(60, 60, 60)');
-	y.setAttribute('transform', 'rotate(45, 30, 30)');
-	x.appendChild(y);
+	Draw('settings_icon');
+	
 }
 
