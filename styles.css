@@ -51,8 +51,8 @@ body {
 
 .quickTab {
 	background-color: white;
-	width: 20%;
-	height: 95%;
+	width: 10%;
+	height: 45%;
 	float: left;
 	margin-left: 3%;
 
@@ -72,30 +72,6 @@ body {
 	outline: solid 1px;
 	outline-color: rgb(80, 100, 240);
 	outline-offset: 3px;
-}
-
-.edit_quickTab {
-	position: absolute;
-	top: 110%;
-	left: 30%;
-	width: 90px;
-	height: 90px;
-	background-color: rgb(30, 40, 170);
-	border-radius: 50%;
-	color: rgba(0, 0, 0, 0);
-	transition: 0.2s;
-}
-
-#side_note {
-	position: absolute;
-	top: 10%;
-	left: 110%;
-	font-family: 'Poppins';
-	font-size: 24px;
-}
-
-.edit_quickTab:hover {
-	color: rgba(170, 170, 170, 1);
 }
 
 
@@ -126,3 +102,16 @@ body {
 	border-color: rgb(90, 110, 240);
 }
 
+#Settings {
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	width: 60px;
+	height: 60px;
+
+	transition: 0.2s;
+}
+
+#Settings:hover {
+	transform: rotate(45deg);
+}
