@@ -2,7 +2,7 @@ var select = false;
 var custom_menu = document.getElementById('rightClick');
 var createElem;
 var quickTab = document.getElementsByClassName('quickTab');
-var linkList = ['https://classroom.google.com/h', 'https://quizlet.com', 'https://drive.google.com/drive/my-drive', 'https://github.com'];
+var linkList = ['https://classroom.google.com/c/NzA3MzY3MjU3M1pa', 'https://classroom.google.com/c/NzAzNjU5MTU2MFpa', 'https://classroom.google.com/c/MTA3MjMxODgz', 'https://quizlet.com', 'https://drive.google.com/drive/my-drive', 'https://github.com'];
 var stage = 1;
 
 function CustomMenu(T) {
@@ -33,6 +33,12 @@ function Draw(Type) {
 	}
 }
 
+function jumpPageHndlr(numer) {
+	document.getElementsByClassName('quickTab')[numer].onclick = function() {
+		window.location = linkList[numer];
+	}
+}
+
 function quickTabHndler() {
 	if (stage == 1) {
 		var theDom;
@@ -42,38 +48,14 @@ function quickTabHndler() {
 			createElem = document.createElement("div");
 			createElem.setAttribute("class", "quickTab");
 			createElem.setAttribute("tabindex", i + 2);
-			createElem.setAttribute("display", "block");
-			createElem.setAttribute("id", "QT" + (i + 1));
 			theDom.appendChild(createElem);
-			
-			document.getElementById('QT' + (i + 1)).innerHTML = "hello";
 		}
 		stage ++;
 	}
 	if (stage == 2) {
-		for (var i = 0; i < linkList.length; i ++) {
-			document.getElementById('QT' + (i + 1)).onclick = function() {
-				window.location = linkList[i];
-			}
-		}
+		
 	} 
 }
-
-/*document.getElementById('QT1').onclick = function() {
-	window.location = linkList[0];
-}
-
-document.getElementById('QT2').onclick = function() {
-	window.location = linkList[1];
-}
-
-document.getElementById('QT3').onclick = function() {
-	window.location = linkList[2];
-}
-
-document.getElementById('QT4').onclick = function() {
-	window.location = linkList[3];
-}*/
 
 window.oncontextmenu = function(e) {
 	custom_menu.style.left = e.clientX + 'px';
@@ -84,6 +66,10 @@ window.oncontextmenu = function(e) {
 
 window.onclick = function() {
 	CustomMenu('F');
+
+	for (var i = 0; i < linkList.length; i ++) {
+		jumpPageHndlr(i);
+	}
 }
 
 window.onkeydown = function(e) {

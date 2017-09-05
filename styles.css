@@ -44,17 +44,18 @@ body {
 #quickTabDiv {
 	position: absolute;
 	width: 90%;
-	height: 35%;
+	height: 50%;
 	top: 60%;
 	left: 6%;
 }
 
 .quickTab {
 	background-color: white;
-	width: 10%;
-	height: 45%;
+	width: 15%;
+	height: 48%;
 	float: left;
-	margin-left: 3%;
+	margin-left: 3.33%;
+	margin-bottom: 4%;
 
 	outline: solid 0px;
 	outline-offset: 3px;
@@ -103,7 +104,7 @@ body {
 }
 
 #Settings {
-	position: absolute;
+	position: fixed;
 	bottom: 15px;
 	right: 15px;
 	width: 60px;
