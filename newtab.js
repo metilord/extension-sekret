@@ -1,8 +1,9 @@
 var select = false;
 var custom_menu = document.getElementById('rightClick');
 var createElem;
-//var quickTab = document.getElementsByClassName('quickTab');
+var quickTab = document.getElementsByClassName('quickTab');
 var linkList = ['https://classroom.google.com/h', 'https://quizlet.com', 'https://drive.google.com/drive/my-drive', 'https://github.com'];
+var stage = 1;
 
 function CustomMenu(T) {
 	if (T === "T") {
@@ -33,25 +34,29 @@ function Draw(Type) {
 }
 
 function quickTabHndler() {
-	for (var i = 0; i < linkList.length; i ++) {
-		var theDom = document.getElementById('quickTabDiv');
-
-		createElem = document.createElement("anchor");
-		createElem.setAttribute("href", "https://google.com");
-		createElem.setAttribute("id", "anchor" + i);
-		createElem.setAttribute("display", "block");
-		theDom.appendChild(createElem);
-
-
-		theDom = document.getElementById("anchor" + i);
-		
-		createElem = document.createElement("div");
-		createElem.setAttribute("class", "quickTab");
-		createElem.setAttribute("tabindex", i + 2);
-		createElem.setAttribute("display", "block");
-		//createElem.setAttribute("id", "QT" + (i + 1));
-		theDom.appendChild(createElem);
+	if (stage == 1) {
+		var theDom;
+		for (var i = 0; i < linkList.length; i ++) {
+			theDom = document.getElementById("quickTabDiv");
+			
+			createElem = document.createElement("div");
+			createElem.setAttribute("class", "quickTab");
+			createElem.setAttribute("tabindex", i + 2);
+			createElem.setAttribute("display", "block");
+			createElem.setAttribute("id", "QT" + (i + 1));
+			theDom.appendChild(createElem);
+			
+			document.getElementById('QT' + (i + 1)).innerHTML = "hello";
+		}
+		stage ++;
 	}
+	if (stage == 2) {
+		for (var i = 0; i < linkList.length; i ++) {
+			document.getElementById('QT' + (i + 1)).onclick = function() {
+				window.location = linkList[i];
+			}
+		}
+	} 
 }
 
 /*document.getElementById('QT1').onclick = function() {
