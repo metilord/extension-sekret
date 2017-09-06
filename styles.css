@@ -116,3 +116,9 @@ body {
 #Settings:hover {
 	transform: rotate(45deg);
 }
+
+.QTimage {
+	margin-top: 42.5%;
+	margin-left: 42.5%;
+	width: 15%;
+}

@@ -2,7 +2,7 @@ var select = false;
 var custom_menu = document.getElementById('rightClick');
 var createElem;
 var quickTab = document.getElementsByClassName('quickTab');
-var linkList = ['https://classroom.google.com/c/NzA3MzY3MjU3M1pa', 'https://classroom.google.com/c/NzAzNjU5MTU2MFpa', 'https://classroom.google.com/c/MTA3MjMxODgz', 'https://quizlet.com', 'https://drive.google.com/drive/my-drive', 'https://github.com'];
+var linkList = ['https://classroom.google.com/h', 'https://quizlet.com/live', 'https://quizlet.com', 'https://drive.google.com/drive/my-drive', 'https://github.com'];
 var stage = 1;
 
 function CustomMenu(T) {
@@ -52,9 +52,10 @@ function quickTabHndler() {
 		}
 		stage ++;
 	}
-	if (stage == 2) {
-		
-	} 
+}
+
+function thingythataddsimage(displayPath) {
+	console.log('displayPath');
 }
 
 window.oncontextmenu = function(e) {
@@ -84,5 +85,7 @@ window.onkeydown = function(e) {
 window.onload = function() {
 	Draw('settings_icon');
 	quickTabHndler();
+
+	chrome.fileSystem.getDisplayPath('file:///Users/lkellogg22/Desktop/BAKE.png', thingythataddsimage());
 }
 
