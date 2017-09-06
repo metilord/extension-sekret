@@ -85,7 +85,5 @@ window.onkeydown = function(e) {
 window.onload = function() {
 	Draw('settings_icon');
 	quickTabHndler();
-
-	chrome.fileSystem.getDisplayPath('file:///Users/lkellogg22/Desktop/BAKE.png', thingythataddsimage());
 }
 
