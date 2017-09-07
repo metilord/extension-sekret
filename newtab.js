@@ -1,9 +1,10 @@
-var select = false;
+	var select = false;
 var custom_menu = document.getElementById('rightClick');
 var createElem;
 var quickTab = document.getElementsByClassName('quickTab');
 var linkList = ['https://classroom.google.com/h', 'https://quizlet.com/live', 'https://quizlet.com', 'https://drive.google.com/drive/my-drive', 'https://github.com'];
 var stage = 1;
+var isSettingsOn = false;
 
 function CustomMenu(T) {
 	if (T === "T") {
@@ -54,15 +55,34 @@ function quickTabHndler() {
 	}
 }
 
-function thingythataddsimage(displayPath) {
-	console.log('displayPath');
-}
-
 window.oncontextmenu = function(e) {
 	custom_menu.style.left = e.clientX + 'px';
 	custom_menu.style.top = e.clientY + 'px';
 	CustomMenu('T');
 	return false;
+}
+
+
+document.getElementById('Settingicns').onclick = function() {
+	if (isSettingsOn === false) {
+		isSettingsOn = true;
+	} else {
+		isSettingsOn = false;
+	}
+	settingsHndlr();
+}
+
+function settingsHndlr() {
+	var settingsDiv = document.getElementById('Preferences');
+	var icon = document.getElementById('Settingicns');
+
+	if (isSettingsOn === false) {
+		settingsDiv.style.display = 'none';
+
+	}
+	if (isSettingsOn === true) {
+		settingsDiv.style.display = 'block';
+	}
 }
 
 window.onclick = function() {
@@ -86,4 +106,3 @@ window.onload = function() {
 	Draw('settings_icon');
 	quickTabHndler();
 }
-

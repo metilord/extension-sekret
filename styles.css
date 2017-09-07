@@ -2,6 +2,26 @@ body {
 	background: rgb(220, 220, 220);
 }
 
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+::-webkit-scollbar-track {
+	background-color: black;
+	position: absolute;
+	right: 4px;
+}
+::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 50px;
+}
+::-webkit-scrollbar-button {
+	background-color: blue;
+}
+::-webkit-scrollbar-corner {
+	background-color: white;
+}
+
 #title {
 	text-align: center;
 	font-family: 'lato', sans-serif;
@@ -32,7 +52,7 @@ body {
 	background-color: rgba(0, 0, 0, 0);
 
 	outline: none;
-	transition: 0.2s;
+	transition: 0.15s;
 }
 
 #searchBox:focus {
@@ -44,7 +64,7 @@ body {
 #quickTabDiv {
 	position: absolute;
 	width: 90%;
-	height: 50%;
+	height: 25%;
 	top: 60%;
 	left: 6%;
 }
@@ -52,7 +72,7 @@ body {
 .quickTab {
 	background-color: white;
 	width: 15%;
-	height: 48%;
+	height: 96%;
 	float: left;
 	margin-left: 3.33%;
 	margin-bottom: 4%;
@@ -103,7 +123,7 @@ body {
 	border-color: rgb(90, 110, 240);
 }
 
-#Settings {
+#Settingicns {
 	position: fixed;
 	bottom: 15px;
 	right: 15px;
@@ -113,12 +133,22 @@ body {
 	transition: 0.2s;
 }
 
-#Settings:hover {
+#Settingicns:hover {
 	transform: rotate(45deg);
 }
 
-.QTimage {
-	margin-top: 42.5%;
-	margin-left: 42.5%;
-	width: 15%;
+#Preferences {
+	position: absolute;
+	top: 1%;
+	right: 0%;
+	width: 29%;
+	height: 97%;
+
+	background-color: rgba(170, 170, 170, 0.8);
+
+	border: solid 3px;
+	border-right: none;
+	border-color: rgba(40, 40, 40, 0.4);
+
+	display: none;
 }
