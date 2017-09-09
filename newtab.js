@@ -1,7 +1,5 @@
-	var select = false;
 var custom_menu = document.getElementById('rightClick');
 var createElem;
-var quickTab = document.getElementsByClassName('quickTab');
 var linkList = ['https://classroom.google.com/h', 'https://quizlet.com/live', 'https://quizlet.com', 'https://drive.google.com/drive/my-drive', 'https://github.com'];
 var stage = 1;
 var isSettingsOn = false;
@@ -94,6 +92,7 @@ window.onclick = function() {
 }
 
 window.onkeydown = function(e) {
+	var select = false;
 	if (e.keyCode === 27) {
 		CustomMenu('F');
 	} else if (select === false) {
