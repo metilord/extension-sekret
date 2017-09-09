@@ -33,8 +33,9 @@ function Draw(Type) {
 }
 
 function jumpPageHndlr(numer) {
-	document.getElementsByClassName('quickTab')[numer].onclick = function() {
-		window.location = linkList[numer];
+	document.getElementsByClassName('quickTab')[numer].onclick = function jumpPageHndlr() {
+		//window.location = linkList[numer];
+		return numer;
 	}
 }
 
@@ -57,6 +58,11 @@ window.oncontextmenu = function(e) {
 	custom_menu.style.left = e.clientX + 'px';
 	custom_menu.style.top = e.clientY + 'px';
 	CustomMenu('T');
+
+	for (var i = 0; i < linkList.length; i ++) {
+		console.log(jumpPageHndlr(i));
+	}
+
 	return false;
 }
 
@@ -83,11 +89,34 @@ function settingsHndlr() {
 	}
 }
 
+function handleFile(evt, numer) {
+	var files = evt.target.files;
+
+	for (var i = 0, f; f = files[i]; i ++) {
+		if (!f.type.match('image.*')) {
+			continue;
+		}
+
+		var reader = new FileReader();
+
+		reader.onload = (function(TheFile) {
+			return function(e) {
+				createElem = document.createElement('img');
+				createElem.setAttribute("src", e.target.result);
+				createElem.setAttribute("class", "thumb_nail");
+				document.getElementsByClassName('quickTab')[0].appendChild(createElem);
+				
+			};
+		})(f);
+		reader.readAsDataURL(f);
+	}
+}
+
 window.onclick = function() {
 	CustomMenu('F');
 
 	for (var i = 0; i < linkList.length; i ++) {
-		jumpPageHndlr(i);
+		console.log(jumpPageHndlr(i));
 	}
 }
 
@@ -104,4 +133,5 @@ window.onkeydown = function(e) {
 window.onload = function() {
 	Draw('settings_icon');
 	quickTabHndler();
+	document.getElementById('files').addEventListener('change', handleFile, false);
 }

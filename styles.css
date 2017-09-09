@@ -5,21 +5,9 @@ body {
 ::-webkit-scrollbar {
 	width: 5px;
 }
-
-::-webkit-scollbar-track {
-	background-color: black;
-	position: absolute;
-	right: 4px;
-}
 ::-webkit-scrollbar-thumb {
 	background-color: rgba(0, 0, 0, 0.2);
 	border-radius: 50px;
-}
-::-webkit-scrollbar-button {
-	background-color: blue;
-}
-::-webkit-scrollbar-corner {
-	background-color: white;
 }
 
 #title {
@@ -83,12 +71,13 @@ body {
 
 	border: solid 3px;
 	border-color: rgb(200, 200, 200);
-}
 
+	overflow: hidden;
+	align-content: center;
+}
 .quickTab:hover {
 	border-color: rgb(160, 160, 160)
 }
-
 .quickTab:focus {
 	outline: solid 1px;
 	outline-color: rgb(80, 100, 240);
@@ -152,3 +141,8 @@ body {
 
 	display: none;
 }
+
+.thumb_nail {
+	width: 100%;
+}
+
