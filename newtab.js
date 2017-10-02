@@ -32,13 +32,6 @@ function Draw(Type) {
 	}
 }
 
-function jumpPageHndlr(numer) {
-	document.getElementsByClassName('quickTab')[numer].onclick = function jumpPageHndlr() {
-		//window.location = linkList[numer];
-		return numer;
-	}
-}
-
 function quickTabHndler() {
 	if (stage == 1) {
 		var theDom;
@@ -49,6 +42,15 @@ function quickTabHndler() {
 			createElem.setAttribute("class", "quickTab");
 			createElem.setAttribute("tabindex", i + 2);
 			theDom.appendChild(createElem);
+
+			theDom = document.getElementsByClassName('quickTab')[i];
+			createElem = document.createElement('input');
+
+			createElem.setAttribute('type', 'button');
+			createElem.setAttribute('value', '');
+			createElem.setAttribute('id', 'open_file');
+			createElem.setAttribute('style', 'height: ' + innerWidth * 0.2 * 0.15 * 0.90 + 'px;');
+			theDom.appendChild(createElem);
 		}
 		stage ++;
 	}
@@ -57,11 +59,15 @@ function quickTabHndler() {
 window.oncontextmenu = function(e) {
 	custom_menu.style.left = e.clientX + 'px';
 	custom_menu.style.top = e.clientY + 'px';
-	CustomMenu('T');
-
-	for (var i = 0; i < linkList.length; i ++) {
-		console.log(jumpPageHndlr(i));
+	
+	if (e.clientY > window.innerHeight - 300) {
+		custom_menu.style.top = (window.innerHeight - 330) + 'px';
 	}
+	if (e.clientX > window.innerWidth - 230) {
+		custom_menu.style.left = (window.innerWidth - 260) + 'px';
+	}
+
+	CustomMenu('T');
 
 	return false;
 }
@@ -89,7 +95,7 @@ function settingsHndlr() {
 	}
 }
 
-function handleFile(evt, numer) {
+function handleFile(evt) {
 	var files = evt.target.files;
 
 	for (var i = 0, f; f = files[i]; i ++) {
@@ -101,6 +107,8 @@ function handleFile(evt, numer) {
 
 		reader.onload = (function(TheFile) {
 			return function(e) {
+				var divPoint = document.getElementsByClassName('quickTab')[0];
+				var child = divPoint.children[0];
 				createElem = document.createElement('img');
 				createElem.setAttribute("src", e.target.result);
 				createElem.setAttribute("class", "thumb_nail");
@@ -111,27 +119,51 @@ function handleFile(evt, numer) {
 		reader.readAsDataURL(f);
 	}
 }
+document.getElementById('files').addEventListener('change', handleFile, false);
 
-window.onclick = function() {
-	CustomMenu('F');
-
-	for (var i = 0; i < linkList.length; i ++) {
-		console.log(jumpPageHndlr(i));
+document.activeElement.onclick = function() {
+	for(var i = 0; i < linkList.length; i ++) {
+		if (document.activeElement.tabIndex === (i + 2)) {
+			window.location = linkList[i];
+		}
 	}
 }
 
-window.onkeydown = function(e) {
-	var select = false;
-	if (e.keyCode === 27) {
+document.getElementsByClassName('BTN_menu')[0].onclick = function() {
+	window.location = 'https://google.com';
+}
+
+{
+	window.onclick = function() {
 		CustomMenu('F');
-	} else if (select === false) {
-		document.getElementById('searchBox').focus();
-		select = true;
+		Draw('settings_icon');
 	}
-}
 
-window.onload = function() {
-	Draw('settings_icon');
-	quickTabHndler();
-	document.getElementById('files').addEventListener('change', handleFile, false);
-}
+	window.onkeydown = function(e) {
+		var select = false;
+
+		if (e.keyCode === 27) {
+			CustomMenu('F');
+		} else if (e.keyCode === 13) {
+			for (var i = 0; i < 5; i ++) {
+				if (document.activeElement.tabIndex === (i + 2)) {
+					window.location = linkList[i];
+				}
+			}
+		} else if (select === false && e.keyCode !== 9 && e.keyCode !== 13) {
+			document.getElementById('searchBox').focus();
+			select = true;
+		}
+	}
+
+	window.onload = function() {
+		Draw('settings_icon');
+		quickTabHndler();
+		console.log(window);
+
+		document.getElementById('open_file').onclick = function() {
+			document.getElementById('files').click();
+			document.getElementById('open_file').style.display = 'none';
+		}
+	}
+} // window events

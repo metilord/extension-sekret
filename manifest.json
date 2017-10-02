@@ -22,10 +22,6 @@
   "offline_enabled": true,
 
   "permissions": [
-    "tabs",
-    
-    "fileSystem",
-    {"fileSystem": ["write"]},
-    {"fileSystem": ["write", "retainEntries", "directory"]} 
+    "tabs"
   ]
 }
